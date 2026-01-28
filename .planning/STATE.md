@@ -2,7 +2,8 @@
 
 ## Current Status
 
-**Phase:** Not started
+**Phase:** 1 of 4 (Foundation)
+**Plan:** 1 of 1 complete in Phase 1
 **Last Updated:** 2026-01-28
 **Mode:** YOLO (hackathon sprint)
 
@@ -12,7 +13,7 @@ See: `.planning/PROJECT.md` (updated 2026-01-28)
 
 **Core value:** Externalize the messy recipe in your head into a format you can actually follow
 
-**Current focus:** Phase 1 - Foundation (API core)
+**Current focus:** Phase 1 complete - Ready for Phase 2 (Web Interface)
 
 **Timeline:** Tonight + tomorrow (hackathon)
 
@@ -20,24 +21,24 @@ See: `.planning/PROJECT.md` (updated 2026-01-28)
 
 | Phase | Name | Status | Progress | Next Action |
 |-------|------|--------|----------|-------------|
-| 1 | Foundation | Pending | 0% (0/3) | Set up Cloudflare Worker, integrate Claude API |
-| 2 | Web Interface | Pending | 0% (0/12) | Awaiting Phase 1 completion |
-| 3 | TRMNL Integration | Pending | 0% (0/2) | Awaiting Phase 1 completion |
+| 1 | Foundation | Complete | 100% (1/1) | Done - API ready |
+| 2 | Web Interface | Pending | 0% (0/12) | Build Next.js UI |
+| 3 | TRMNL Integration | Pending | 0% (0/2) | Add webhook endpoint |
 | 4 | iOS Shortcut | Pending | 0% (0/5) | Awaiting Phases 1 & 3 completion |
 
-**Overall Progress:** 0/22 requirements (0%)
+**Overall Progress:** 1/4 plans complete (25%)
 
 ```
-[░░░░░░░░░░░░░░░░░░░░] 0%
+[█████░░░░░░░░░░░░░░░] 25%
 ```
 
 ## Performance Metrics
 
 **Started:** 2026-01-28
-**Days active:** 0
-**Requirements completed:** 0/22
-**Phases completed:** 0/4
-**Velocity:** N/A (no completed work yet)
+**Days active:** 1
+**Plans completed:** 1/4
+**Phases completed:** 1/4
+**Velocity:** 1 plan in 3 min
 
 ## Accumulated Context
 
@@ -49,6 +50,8 @@ See: `.planning/PROJECT.md` (updated 2026-01-28)
 | 2026-01-28 | LocalStorage over database | Simplest path for hackathon, persistence not critical |
 | 2026-01-28 | Cloudflare Workers for API | Edge deployment, fast cold starts, good DX |
 | 2026-01-28 | Recipe sections (Prep/Cook/Assemble) | Natural phases help with progress tracking and ADHD focus |
+| 2026-01-28 | tool_choice over beta structured-outputs | SDK v0.39.0 doesn't have beta helpers, tool_choice achieves same result |
+| 2026-01-28 | zod-to-json-schema for schema conversion | Clean way to convert Zod schemas to JSON Schema for Claude tools |
 
 ### Open Questions
 
@@ -58,31 +61,36 @@ See: `.planning/PROJECT.md` (updated 2026-01-28)
 
 ### Blockers
 
-None yet.
+None.
 
 ### TODOs (Cross-Phase)
 
-- [ ] Set up Cloudflare Worker project
+- [x] Set up Cloudflare Worker project
 - [ ] Set up Next.js project on Vercel
-- [ ] Get Claude API key
-- [ ] Define recipe JSON schema
+- [ ] Get Claude API key (user setup)
+- [x] Define recipe JSON schema
 - [ ] Test with real voice transcript (chicken wraps example)
 
 ## Session Continuity
 
-**Last session:** 2026-01-28 - Project initialization and roadmap creation
+**Last session:** 2026-01-28 - Completed Phase 1 Plan 01
 
 **What just happened:**
-- Created PROJECT.md with core value and constraints
-- Defined 22 v1 requirements across API, Web, Design, iOS
-- Built 4-phase roadmap targeting hackathon timeline
-- Initialized STATE.md for progress tracking
+- Initialized Cloudflare Worker project with all dependencies
+- Created Zod schemas for Recipe, Section, Step, Ingredient
+- Integrated Claude API with tool_choice for structured outputs
+- Built POST /api/recipe/parse endpoint with validation and CORS
+
+**Commits:**
+- `0b2b673` - Initialize Cloudflare Worker project
+- `5bf0d91` - Create Zod schema and types
+- `203cc2f` - Create Claude API client with structured outputs
+- `6f671a7` - Create Worker fetch handler
 
 **Next session should:**
-- Start Phase 1: Set up Cloudflare Worker
-- Integrate Claude API for transcript parsing
-- Define and test recipe JSON schema
-- Build parse endpoint with sample data
+- Execute Phase 2: Build Next.js web interface
+- Or test API with real transcript data first
+- User needs to configure ANTHROPIC_API_KEY in .dev.vars
 
 **Context to preserve:**
 - This is a hackathon entry for TRMNL (e-ink display)
