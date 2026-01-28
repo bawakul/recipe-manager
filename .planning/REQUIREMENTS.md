@@ -82,34 +82,37 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| API-01 | TBD | Pending |
-| API-02 | TBD | Pending |
-| API-03 | TBD | Pending |
-| API-04 | TBD | Pending |
-| API-05 | TBD | Pending |
-| WEB-01 | TBD | Pending |
-| WEB-02 | TBD | Pending |
-| WEB-03 | TBD | Pending |
-| WEB-04 | TBD | Pending |
-| WEB-05 | TBD | Pending |
-| WEB-06 | TBD | Pending |
-| WEB-07 | TBD | Pending |
-| DES-01 | TBD | Pending |
-| DES-02 | TBD | Pending |
-| DES-03 | TBD | Pending |
-| DES-04 | TBD | Pending |
-| DES-05 | TBD | Pending |
-| IOS-01 | TBD | Pending |
-| IOS-02 | TBD | Pending |
-| IOS-03 | TBD | Pending |
-| IOS-04 | TBD | Pending |
-| IOS-05 | TBD | Pending |
+| API-01 | Phase 1 | Pending |
+| API-02 | Phase 1 | Pending |
+| API-03 | Phase 1 | Pending |
+| API-04 | Phase 3 | Pending |
+| API-05 | Phase 3 | Pending |
+| WEB-01 | Phase 2 | Pending |
+| WEB-02 | Phase 2 | Pending |
+| WEB-03 | Phase 2 | Pending |
+| WEB-04 | Phase 2 | Pending |
+| WEB-05 | Phase 2 | Pending |
+| WEB-06 | Phase 2 | Pending |
+| WEB-07 | Phase 2 | Pending |
+| DES-01 | Phase 2 | Pending |
+| DES-02 | Phase 2 | Pending |
+| DES-03 | Phase 2 | Pending |
+| DES-04 | Phase 2 | Pending |
+| DES-05 | Phase 2 | Pending |
+| IOS-01 | Phase 4 | Pending |
+| IOS-02 | Phase 4 | Pending |
+| IOS-03 | Phase 4 | Pending |
+| IOS-04 | Phase 4 | Pending |
+| IOS-05 | Phase 4 | Pending |
 
 **Coverage:**
 - v1 requirements: 22 total
-- Mapped to phases: 0
-- Unmapped: 22 (awaiting roadmap)
+- Mapped to phases: 22 (100%)
+- Phase 1: 3 requirements (API core)
+- Phase 2: 12 requirements (Web + Design)
+- Phase 3: 2 requirements (TRMNL)
+- Phase 4: 5 requirements (iOS)
 
 ---
 *Requirements defined: 2026-01-28*
-*Last updated: 2026-01-28 after initial definition*
+*Last updated: 2026-01-28 after roadmap creation*
