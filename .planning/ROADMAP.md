@@ -40,7 +40,7 @@
 - JSON schema definition for recipe structure
 
 Plans:
-- [ ] 01-01-PLAN.md — Set up Cloudflare Worker with Claude API for transcript parsing
+- [x] 01-01-PLAN.md — Set up Cloudflare Worker with Claude API for transcript parsing
 
 ---
 
@@ -117,10 +117,10 @@ Plans:
 
 | Phase | Status | Progress | Blocking Issues |
 |-------|--------|----------|-----------------|
-| 1 - Foundation | Planned | 0/3 requirements | Ready for execution |
-| 2 - Web Interface | Pending | 0/12 requirements | Blocked by Phase 1 |
-| 3 - TRMNL Integration | Pending | 0/2 requirements | Blocked by Phase 1 |
-| 4 - iOS Shortcut | Pending | 0/5 requirements | Blocked by Phases 1, 3 |
+| 1 - Foundation | ✓ Complete | 3/3 requirements | — |
+| 2 - Web Interface | Ready | 0/12 requirements | — |
+| 3 - TRMNL Integration | Ready | 0/2 requirements | — |
+| 4 - iOS Shortcut | Pending | 0/5 requirements | Blocked by Phase 3 |
 
 ## Hackathon Sequencing
 
@@ -138,4 +138,4 @@ Plans:
 ---
 
 *Roadmap created: 2026-01-28*
-*Last updated: 2026-01-28 (Phase 1 planned)*
+*Last updated: 2026-01-28 (Phase 1 complete)*

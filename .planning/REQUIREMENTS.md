@@ -9,9 +9,9 @@ Requirements for hackathon demo. Each maps to roadmap phases.
 
 ### API
 
-- [ ] **API-01**: POST /api/recipe/parse accepts transcript text and returns structured recipe JSON
-- [ ] **API-02**: Claude prompt handles rambling input: corrections, filler words, transcription errors, non-linear ordering
-- [ ] **API-03**: Output includes sections (Prep, Marinate, Cook, Assemble), steps with IDs, and extracted ingredients
+- [x] **API-01**: POST /api/recipe/parse accepts transcript text and returns structured recipe JSON
+- [x] **API-02**: Claude prompt handles rambling input: corrections, filler words, transcription errors, non-linear ordering
+- [x] **API-03**: Output includes sections (Prep, Marinate, Cook, Assemble), steps with IDs, and extracted ingredients
 - [ ] **API-04**: POST /api/trmnl/webhook formats recipe JSON and pushes to TRMNL webhook URL
 - [ ] **API-05**: TRMNL payload stays under 2kb limit with merge_variables format
 
@@ -82,9 +82,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| API-01 | Phase 1 | Pending |
-| API-02 | Phase 1 | Pending |
-| API-03 | Phase 1 | Pending |
+| API-01 | Phase 1 | Complete |
+| API-02 | Phase 1 | Complete |
+| API-03 | Phase 1 | Complete |
 | API-04 | Phase 3 | Pending |
 | API-05 | Phase 3 | Pending |
 | WEB-01 | Phase 2 | Pending |
@@ -115,4 +115,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-01-28*
-*Last updated: 2026-01-28 after roadmap creation*
+*Last updated: 2026-01-28 (Phase 1 complete)*
