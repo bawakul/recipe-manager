@@ -23,6 +23,8 @@
 
 **Requirements:** API-01, API-02, API-03
 
+**Plans:** 1 plan
+
 **Dependencies:** None (first phase)
 
 **Success Criteria:**
@@ -36,6 +38,9 @@
 - Claude API integration for parsing
 - Prompt engineering to handle rambling input gracefully
 - JSON schema definition for recipe structure
+
+Plans:
+- [ ] 01-01-PLAN.md — Set up Cloudflare Worker with Claude API for transcript parsing
 
 ---
 
@@ -112,7 +117,7 @@
 
 | Phase | Status | Progress | Blocking Issues |
 |-------|--------|----------|-----------------|
-| 1 - Foundation | Pending | 0/3 requirements | - |
+| 1 - Foundation | Planned | 0/3 requirements | Ready for execution |
 | 2 - Web Interface | Pending | 0/12 requirements | Blocked by Phase 1 |
 | 3 - TRMNL Integration | Pending | 0/2 requirements | Blocked by Phase 1 |
 | 4 - iOS Shortcut | Pending | 0/5 requirements | Blocked by Phases 1, 3 |
@@ -133,4 +138,4 @@
 ---
 
 *Roadmap created: 2026-01-28*
-*Last updated: 2026-01-28*
+*Last updated: 2026-01-28 (Phase 1 planned)*
