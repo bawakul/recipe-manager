@@ -36,7 +36,8 @@ export function RecipeChecklist({ recipe }: RecipeChecklistProps) {
     notes?: string;
   }) => {
     let text = '';
-    if (ingredient.quantity) {
+    // Filter out placeholder values like <UNKNOWN>
+    if (ingredient.quantity && !ingredient.quantity.includes('UNKNOWN')) {
       text += ingredient.quantity + ' ';
     }
     text += ingredient.name;

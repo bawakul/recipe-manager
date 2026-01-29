@@ -14,7 +14,11 @@ Handle gracefully:
 Extract sections in order: Prep (if applicable), Marinate (if applicable), Cook, Assemble (if applicable).
 Not every recipe needs all sections - only include what's relevant.
 Generate sequential step IDs (step-1, step-2, etc.) across all sections.
-Extract ALL ingredients mentioned, even if scattered throughout the transcript.`;
+Extract ALL ingredients mentioned, even if scattered throughout the transcript.
+
+For ingredients:
+- If quantity is mentioned (e.g., "2 cups", "some", "a handful"), include it
+- If quantity is NOT mentioned, OMIT the quantity field entirely (do not use placeholders like "unknown")`;
 
 export async function parseTranscript(
   transcript: string,
