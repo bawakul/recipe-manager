@@ -3,7 +3,7 @@
 ## Current Status
 
 **Phase:** 2 of 4 (Web Interface)
-**Plan:** 2 of 4 complete in Phase 2
+**Plan:** 3 of 4 complete in Phase 2
 **Last Updated:** 2026-01-29
 **Mode:** YOLO (hackathon sprint)
 
@@ -22,21 +22,21 @@ See: `.planning/PROJECT.md` (updated 2026-01-28)
 | Phase | Name | Status | Progress | Next Action |
 |-------|------|--------|----------|-------------|
 | 1 | Foundation | Complete | 100% (1/1) | Done - API ready |
-| 2 | Web Interface | In Progress | 50% (2/4) | Build RecipeInput component (Plan 02) |
+| 2 | Web Interface | In Progress | 75% (3/4) | Wire up complete page flow (Plan 04) |
 | 3 | TRMNL Integration | Pending | 0% (0/2) | Add webhook endpoint |
 | 4 | iOS Shortcut | Pending | 0% (0/5) | Awaiting Phases 1 & 3 completion |
 
-**Overall Progress:** 3/12 plans complete (25%)
+**Overall Progress:** 4/12 plans complete (33%)
 
 ```
-[█████░░░░░░░░░░░░░░░] 25%
+[███████░░░░░░░░░░░░░] 33%
 ```
 
 ## Performance Metrics
 
 **Started:** 2026-01-28
 **Days active:** 2
-**Plans completed:** 3/12
+**Plans completed:** 4/12
 **Phases completed:** 1/4
 **Velocity:** ~4 min per plan
 
@@ -57,6 +57,8 @@ See: `.planning/PROJECT.md` (updated 2026-01-28)
 | 2026-01-29 | SSR-safe localStorage hook | typeof window check prevents hydration mismatch |
 | 2026-01-29 | Large 7x7 checkboxes | Kitchen use requires easy touch targets with messy hands |
 | 2026-01-29 | Recipe-based localStorage key | `recipe-${title}` ensures separate progress per recipe |
+| 2026-01-29 | CSS Grid pseudo-element for auto-grow textarea | No JS height calculation, works with SSR |
+| 2026-01-29 | Enter submits, Shift+Enter for newlines | Chat-style UX pattern for recipe input |
 
 ### Open Questions
 
@@ -79,21 +81,22 @@ None.
 
 ## Session Continuity
 
-**Last session:** 2026-01-29 - Completed Phase 2 Plan 03
+**Last session:** 2026-01-29 - Completed Phase 2 Plan 02
 
 **What just happened:**
-- Created ProgressBar component with percentage calculation and smooth transitions
-- Created RecipeChecklist component with full recipe display
-- Implemented checkbox state persistence via useLocalStorage
-- Kitchen-optimized UI: large tap targets, arm's-length readable text
+- Created RecipeInput component with CSS Grid auto-grow textarea
+- Created LoadingState component with animated spinner
+- Wired up home page with input -> loading -> success/error flow
+- Chat-style UX: Enter submits, Shift+Enter for newlines
 
 **Commits:**
-- `e04eddf` - Create ProgressBar component
-- `0edc08d` - Create RecipeChecklist component
+- `512dc83` - Create RecipeInput component with auto-grow textarea
+- `e0498d2` - Create LoadingState component
+- `047c46f` - Wire up home page with input, loading, and API flow
 
 **Next session should:**
-- Execute Phase 2 Plan 02: RecipeInput component (textarea + submit)
-- Then Phase 2 Plan 04: Wire components into page.tsx
+- Execute Phase 2 Plan 04: Wire all components together
+- Then Phase 3: TRMNL Integration
 - User needs to configure ANTHROPIC_API_KEY in .dev.vars for API testing
 
 **Context to preserve:**
