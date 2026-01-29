@@ -2,8 +2,8 @@
 
 ## Current Status
 
-**Phase:** 3 of 4 (TRMNL Integration) - COMPLETE
-**Plan:** 1 of 1 complete in Phase 3
+**Phase:** 4 of 4 (iOS Shortcut) - IN PROGRESS
+**Plan:** 1 of 5 complete in Phase 4
 **Last Updated:** 2026-01-29
 **Mode:** YOLO (hackathon sprint)
 
@@ -13,7 +13,7 @@ See: `.planning/PROJECT.md` (updated 2026-01-28)
 
 **Core value:** Externalize the messy recipe in your head into a format you can actually follow
 
-**Current focus:** Phase 3 complete - Ready for Phase 4 iOS Shortcut
+**Current focus:** Phase 4 in progress - URL param support complete, iOS Shortcut next
 
 **Timeline:** Tonight + tomorrow (hackathon)
 
@@ -24,21 +24,21 @@ See: `.planning/PROJECT.md` (updated 2026-01-28)
 | 1 | Foundation | Complete | 100% (1/1) | Done - API ready |
 | 2 | Web Interface | Complete | 100% (4/4) | Done - Full UI ready |
 | 3 | TRMNL Integration | Complete | 100% (1/1) | Done - Webhook ready |
-| 4 | iOS Shortcut | Pending | 0% (0/5) | Plan + execute iOS shortcut |
+| 4 | iOS Shortcut | In Progress | 20% (1/5) | Execute remaining 4 plans |
 
-**Overall Progress:** 6/7 plans complete (86%)
+**Overall Progress:** 7/11 plans complete (64%)
 
 ```
-[█████████████████░░░] 86%
+[█████████████░░░░░░░] 64%
 ```
 
 ## Performance Metrics
 
 **Started:** 2026-01-28
 **Days active:** 2
-**Plans completed:** 6/7
+**Plans completed:** 7/11
 **Phases completed:** 3/4
-**Velocity:** ~2 min per plan
+**Velocity:** ~1.5 min per plan
 
 ## Accumulated Context
 
@@ -65,6 +65,9 @@ See: `.planning/PROJECT.md` (updated 2026-01-28)
 | 2026-01-29 | Progressive compression (60ch → 8 steps → 6 steps) | Balances data preservation with 2kb payload limit |
 | 2026-01-29 | TextEncoder for byte measurement | Accurate UTF-8 byte count (string.length counts UTF-16 characters) |
 | 2026-01-29 | Fire-and-forget TRMNL push | Parse API should always succeed if recipe parsed correctly - TRMNL is secondary |
+| 2026-01-29 | Base64 encoding for URL params | Standard encoding for binary-safe URL transmission, browser-native support |
+| 2026-01-29 | Clear URL param after load | Prevents confusion/staleness on refresh, recipe lives in localStorage |
+| 2026-01-29 | Suspense boundary for useSearchParams | Required by Next.js for client-side hooks in SSR context |
 
 ### Open Questions
 
@@ -85,29 +88,31 @@ None.
 - [ ] Configure TRMNL_WEBHOOK_URL in .dev.vars
 - [x] Define recipe JSON schema
 - [x] Add TRMNL webhook integration
+- [x] Add URL query param support for iOS Shortcut
 - [ ] Create TRMNL Liquid template
 - [ ] Test with real voice transcript (chicken wraps example)
+- [ ] Create iOS Shortcut
 
 ## Session Continuity
 
-**Last session:** 2026-01-29 - Completed Phase 3 (TRMNL Integration)
+**Last session:** 2026-01-29 - Completed Phase 4 Plan 1 (URL Query Parameter Support)
 
 **What just happened:**
-- Created TRMNL module with payload formatting and compression
-- Auto-push to TRMNL after successful recipe parse
-- Manual push endpoint (/api/trmnl/push) for on-demand triggers
-- Graceful error handling (rate limits, network failures, missing webhook URL)
-- Phase 3 complete with 1 plan
+- Added URL query parameter support to frontend page.tsx
+- Implemented base64 decoding and JSON parsing for recipe data
+- Added validation for required fields (title, sections, ingredients)
+- Wrapped component in Suspense boundary for Next.js SSR compatibility
+- URL param cleared after loading to prevent stale state
+- Phase 4 Plan 1 complete (1/5)
 
 **Commits:**
-- `c764c3f` - Create TRMNL module with payload formatting
-- `3ca84f8` - Integrate TRMNL into Worker endpoints
-- `d02f525` - Complete TRMNL webhook integration plan
+- `1036b8b` - feat(04-01): add URL query param recipe loading
 
 **Next session should:**
-- Plan and execute Phase 4: iOS Shortcut
+- Execute Phase 4 Plans 2-5 (iOS Shortcut implementation)
 - User needs to configure TRMNL_WEBHOOK_URL in .dev.vars for testing
 - User needs to create TRMNL private plugin in dashboard
+- Test URL param loading with real base64-encoded recipe data
 
 **Context to preserve:**
 - This is a hackathon entry for TRMNL (e-ink display)
@@ -120,4 +125,4 @@ None.
 ---
 
 *State initialized: 2026-01-28*
-*Last updated: 2026-01-29*
+*Last updated: 2026-01-29 15:29 UTC*
