@@ -6,13 +6,14 @@ import { LoadingState } from '@/components/LoadingState';
 import { RecipeChecklist } from '@/components/RecipeChecklist';
 import { AdjustPanel } from '@/components/AdjustPanel';
 import { parseRecipe } from '@/lib/api';
+import { useLocalStorage } from '@/lib/storage';
 import type { Recipe } from '@/lib/types';
 
 export default function Home() {
-  const [transcript, setTranscript] = useState('');
+  const [transcript, setTranscript] = useLocalStorage<string>('recipe-transcript', '');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [recipe, setRecipe] = useState<Recipe | null>(null);
+  const [recipe, setRecipe] = useLocalStorage<Recipe | null>('recipe-current', null);
   const [isAdjustPanelOpen, setIsAdjustPanelOpen] = useState(false);
 
   const handleSubmit = async (text: string) => {
