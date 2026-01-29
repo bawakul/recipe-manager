@@ -57,10 +57,12 @@ async function handleParse(request: Request, env: Env): Promise<Response> {
     });
 
   } catch (error) {
-    console.error('Error parsing recipe:', error);
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    const errorStack = error instanceof Error ? error.stack : undefined;
+    console.error('Error parsing recipe:', errorMessage, errorStack);
 
     // Check for rate limit errors
-    if (error instanceof Error && error.message.includes('429')) {
+    if (errorMessage.includes('429')) {
       return new Response(
         JSON.stringify({ error: 'Rate limit exceeded. Please try again in a moment.' }),
         { status: 429, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
@@ -68,15 +70,16 @@ async function handleParse(request: Request, env: Env): Promise<Response> {
     }
 
     // Check for transcript too long
-    if (error instanceof Error && error.message.includes('too complex')) {
+    if (errorMessage.includes('too complex')) {
       return new Response(
-        JSON.stringify({ error: error.message }),
+        JSON.stringify({ error: errorMessage }),
         { status: 413, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }
 
+    // Return actual error for debugging (remove in production)
     return new Response(
-      JSON.stringify({ error: 'Failed to parse recipe. Please try again.' }),
+      JSON.stringify({ error: 'Failed to parse recipe', debug: errorMessage }),
       { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     );
   }

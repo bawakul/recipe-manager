@@ -23,7 +23,7 @@ export async function parseTranscript(
   const client = new Anthropic({ apiKey: env.ANTHROPIC_API_KEY });
 
   const response = await client.messages.create({
-    model: 'claude-sonnet-4-5-20250514',
+    model: 'claude-sonnet-4-20250514',
     max_tokens: 4096,
     system: SYSTEM_PROMPT,
     messages: [{
