@@ -110,6 +110,8 @@ Plans:
 
 **Requirements:** IOS-01, IOS-02, IOS-03, IOS-04, IOS-05
 
+**Plans:** 2 plans
+
 **Dependencies:** Phase 1 (needs parse API), Phase 3 (TRMNL webhook)
 
 **Success Criteria:**
@@ -123,7 +125,12 @@ Plans:
 - iOS Shortcuts app configuration
 - Share sheet integration for audio files
 - HTTP POST actions with JSON handling
-- Optional: Direct TRMNL trigger vs API-mediated
+- Frontend URL param support for stateless recipe loading
+- Base64-encoded recipe in URL query params
+
+Plans:
+- [ ] 04-01-PLAN.md — Add URL query param recipe loading to frontend
+- [ ] 04-02-PLAN.md — Create iOS Shortcut build guide and verify end-to-end
 
 ---
 
@@ -134,7 +141,7 @@ Plans:
 | 1 - Foundation | Complete | 3/3 requirements | — |
 | 2 - Web Interface | Complete | 12/12 requirements | — |
 | 3 - TRMNL Integration | Complete | 2/2 requirements | — |
-| 4 - iOS Shortcut | Ready | 0/5 requirements | — |
+| 4 - iOS Shortcut | Planned | 0/5 requirements | — |
 
 ## Hackathon Sequencing
 
@@ -152,4 +159,4 @@ Plans:
 ---
 
 *Roadmap created: 2026-01-28*
-*Last updated: 2026-01-29 (Phase 3 complete)*
+*Last updated: 2026-01-29 (Phase 4 planned)*
