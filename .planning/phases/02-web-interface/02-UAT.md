@@ -1,5 +1,5 @@
 ---
-status: complete
+status: complete-with-fixes
 phase: 02-web-interface
 source: [02-01-SUMMARY.md, 02-02-SUMMARY.md, 02-03-SUMMARY.md, 02-04-SUMMARY.md]
 started: 2026-01-29T12:30:00Z
@@ -96,11 +96,30 @@ skipped: 0
 ## Gaps
 
 - truth: "Check some steps, refresh the page. Checked steps remain checked after reload."
-  status: failed
+  status: fixed
   reason: "User reported: Nope, we go back to the home screen on reload"
   severity: major
   test: 14
-  root_cause: ""
-  artifacts: []
-  missing: []
-  debug_session: ""
+  root_cause: "page.tsx uses useState for recipe/transcript (lines 12-15) which resets on refresh. Only completedSteps uses useLocalStorage."
+  artifacts:
+    - path: "frontend/app/page.tsx"
+      issue: "recipe and transcript not persisted to localStorage"
+  missing:
+    - "Persist recipe and transcript to localStorage using existing useLocalStorage hook"
+  fix_commit: "80224bb"
+
+- truth: "Ingredients display with correct quantities"
+  status: fixed
+  reason: "User reported: ingredient amounts showing as <UNKNOWN>"
+  severity: minor
+  test: discovered-during-fix
+  root_cause: "Claude API prompt didn't specify how to handle unknown quantities, so it used <UNKNOWN> placeholder"
+  artifacts:
+    - path: "src/claude.ts"
+      issue: "Missing guidance for unknown quantities"
+    - path: "frontend/components/RecipeChecklist.tsx"
+      issue: "No filter for placeholder values"
+  missing:
+    - "Prompt update to omit unknown quantities"
+    - "Frontend filter for cached data"
+  fix_commit: "50998a5"
