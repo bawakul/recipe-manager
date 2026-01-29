@@ -36,4 +36,5 @@ export type Recipe = z.infer<typeof RecipeSchema>;
 // Worker environment type
 export interface Env {
   ANTHROPIC_API_KEY: string;
+  TRMNL_WEBHOOK_URL?: string; // Optional - not all deployments need TRMNL integration
 }
