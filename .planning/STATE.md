@@ -2,8 +2,8 @@
 
 ## Current Status
 
-**Phase:** 2 of 4 (Web Interface)
-**Plan:** 3 of 4 complete in Phase 2
+**Phase:** 2 of 4 (Web Interface) - COMPLETE
+**Plan:** 4 of 4 complete in Phase 2
 **Last Updated:** 2026-01-29
 **Mode:** YOLO (hackathon sprint)
 
@@ -13,7 +13,7 @@ See: `.planning/PROJECT.md` (updated 2026-01-28)
 
 **Core value:** Externalize the messy recipe in your head into a format you can actually follow
 
-**Current focus:** Phase 2 in progress - Building Next.js UI
+**Current focus:** Phase 2 complete - Ready for Phase 3 TRMNL Integration
 
 **Timeline:** Tonight + tomorrow (hackathon)
 
@@ -22,23 +22,23 @@ See: `.planning/PROJECT.md` (updated 2026-01-28)
 | Phase | Name | Status | Progress | Next Action |
 |-------|------|--------|----------|-------------|
 | 1 | Foundation | Complete | 100% (1/1) | Done - API ready |
-| 2 | Web Interface | In Progress | 75% (3/4) | Wire up complete page flow (Plan 04) |
+| 2 | Web Interface | Complete | 100% (4/4) | Done - Full UI ready |
 | 3 | TRMNL Integration | Pending | 0% (0/2) | Add webhook endpoint |
 | 4 | iOS Shortcut | Pending | 0% (0/5) | Awaiting Phases 1 & 3 completion |
 
-**Overall Progress:** 4/12 plans complete (33%)
+**Overall Progress:** 5/12 plans complete (42%)
 
 ```
-[███████░░░░░░░░░░░░░] 33%
+[████████░░░░░░░░░░░░] 42%
 ```
 
 ## Performance Metrics
 
 **Started:** 2026-01-28
 **Days active:** 2
-**Plans completed:** 4/12
-**Phases completed:** 1/4
-**Velocity:** ~4 min per plan
+**Plans completed:** 5/12
+**Phases completed:** 2/4
+**Velocity:** ~3 min per plan
 
 ## Accumulated Context
 
@@ -59,6 +59,8 @@ See: `.planning/PROJECT.md` (updated 2026-01-28)
 | 2026-01-29 | Recipe-based localStorage key | `recipe-${title}` ensures separate progress per recipe |
 | 2026-01-29 | CSS Grid pseudo-element for auto-grow textarea | No JS height calculation, works with SSR |
 | 2026-01-29 | Enter submits, Shift+Enter for newlines | Chat-style UX pattern for recipe input |
+| 2026-01-29 | Sticky header in page.tsx | Page owns navigation (Adjust, Start over), components own content |
+| 2026-01-29 | Transcript concatenation for re-parsing | `original + ADJUSTMENTS: + corrections` pattern |
 
 ### Open Questions
 
@@ -81,22 +83,21 @@ None.
 
 ## Session Continuity
 
-**Last session:** 2026-01-29 - Completed Phase 2 Plan 02
+**Last session:** 2026-01-29 - Completed Phase 2 Plan 04 (Phase 2 complete!)
 
 **What just happened:**
-- Created RecipeInput component with CSS Grid auto-grow textarea
-- Created LoadingState component with animated spinner
-- Wired up home page with input -> loading -> success/error flow
-- Chat-style UX: Enter submits, Shift+Enter for newlines
+- Created AdjustPanel component for recipe refinement
+- Integrated complete flow: input -> loading -> checklist -> adjust
+- Sticky header with "Adjust" and "Start over" buttons
+- Phase 2 Web Interface is now 100% complete
 
 **Commits:**
-- `512dc83` - Create RecipeInput component with auto-grow textarea
-- `e0498d2` - Create LoadingState component
-- `047c46f` - Wire up home page with input, loading, and API flow
+- `e54bd31` - Create AdjustPanel component for recipe refinement
+- `a1544ac` - Integrate complete page flow with all components
 
 **Next session should:**
-- Execute Phase 2 Plan 04: Wire all components together
-- Then Phase 3: TRMNL Integration
+- Execute Phase 3: TRMNL Integration
+- Plan 03-01: Add webhook endpoint for TRMNL display
 - User needs to configure ANTHROPIC_API_KEY in .dev.vars for API testing
 
 **Context to preserve:**
@@ -105,6 +106,7 @@ None.
 - Core validation already done (tested concept with Claude phone app)
 - Building TRMNL integration blind (don't have device yet)
 - Sample input: Real messy voice transcript from cooking chicken wraps
+- Phase 2 UI is fully functional, ready for e2e testing
 
 ---
 
