@@ -50,21 +50,30 @@ Plans:
 
 **Requirements:** WEB-01, WEB-02, WEB-03, WEB-04, WEB-05, WEB-06, WEB-07, DES-01, DES-02, DES-03, DES-04, DES-05
 
+**Plans:** 4 plans
+
 **Dependencies:** Phase 1 (needs parse API)
 
 **Success Criteria:**
 1. User can paste transcript on home page and submit to get interactive checklist
 2. User can check off steps and see progress bar update (X of Y completed)
-3. User can collapse/expand sections to reduce visual clutter
+3. All sections expanded by default (collapsible removed per CONTEXT.md)
 4. Checkbox state persists across page reloads via localStorage
 5. UI is usable in kitchen: mobile-first, large tap targets, high contrast, readable at arm's length
 6. Loading state shows while API processes transcript
 
 **Technical Notes:**
 - Next.js + Tailwind CSS
-- Dark theme (#1a1a1a background, #f59e0b amber accents)
+- Dark theme (#1a1a1a background, #39FF6D neon green accents)
 - localStorage for checkbox persistence
-- Progressive enhancement (works without JavaScript for display)
+- Chat-style auto-grow input UX
+- Adjust panel for recipe refinement
+
+Plans:
+- [ ] 02-01-PLAN.md — Project setup with Next.js, Tailwind, types, and API client
+- [ ] 02-02-PLAN.md — Input page with auto-grow textarea and loading state
+- [ ] 02-03-PLAN.md — Recipe checklist with progress tracking and localStorage
+- [ ] 02-04-PLAN.md — Complete flow integration with adjust panel
 
 ---
 
@@ -117,7 +126,7 @@ Plans:
 
 | Phase | Status | Progress | Blocking Issues |
 |-------|--------|----------|-----------------|
-| 1 - Foundation | ✓ Complete | 3/3 requirements | — |
+| 1 - Foundation | Complete | 3/3 requirements | — |
 | 2 - Web Interface | Ready | 0/12 requirements | — |
 | 3 - TRMNL Integration | Ready | 0/2 requirements | — |
 | 4 - iOS Shortcut | Pending | 0/5 requirements | Blocked by Phase 3 |
@@ -133,9 +142,9 @@ Plans:
 - Phase 3: TRMNL integration
 - Phase 4: iOS Shortcut
 
-**Critical Path:** Phase 1 → Phase 2 → Demo-ready. Phases 3 and 4 are enhancements.
+**Critical Path:** Phase 1 -> Phase 2 -> Demo-ready. Phases 3 and 4 are enhancements.
 
 ---
 
 *Roadmap created: 2026-01-28*
-*Last updated: 2026-01-28 (Phase 1 complete)*
+*Last updated: 2026-01-29 (Phase 2 planned)*
