@@ -6,10 +6,9 @@ import { ProgressBar } from './ProgressBar';
 
 interface RecipeChecklistProps {
   recipe: Recipe;
-  onStartOver: () => void;
 }
 
-export function RecipeChecklist({ recipe, onStartOver }: RecipeChecklistProps) {
+export function RecipeChecklist({ recipe }: RecipeChecklistProps) {
   const [completedSteps, setCompletedSteps] = useLocalStorage<string[]>(
     `recipe-${recipe.title}`,
     []
@@ -48,20 +47,7 @@ export function RecipeChecklist({ recipe, onStartOver }: RecipeChecklistProps) {
   };
 
   return (
-    <div className="max-w-2xl mx-auto px-4 py-8 pb-24">
-      {/* Header section */}
-      <div className="flex items-start justify-between mb-6">
-        <h1 className="text-2xl md:text-3xl font-bold text-white">
-          {recipe.title}
-        </h1>
-        <button
-          onClick={onStartOver}
-          className="text-gray-400 hover:text-white text-sm shrink-0 ml-4"
-        >
-          Start over
-        </button>
-      </div>
-
+    <div className="max-w-2xl mx-auto px-4 py-6 pb-24">
       {/* Progress bar */}
       <div className="mb-8">
         <ProgressBar completed={completedCount} total={totalSteps} />
