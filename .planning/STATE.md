@@ -2,9 +2,9 @@
 
 ## Current Status
 
-**Phase:** 1 of 4 (Foundation)
-**Plan:** 1 of 1 complete in Phase 1
-**Last Updated:** 2026-01-28
+**Phase:** 2 of 4 (Web Interface)
+**Plan:** 1 of 12 complete in Phase 2
+**Last Updated:** 2026-01-29
 **Mode:** YOLO (hackathon sprint)
 
 ## Project Reference
@@ -13,7 +13,7 @@ See: `.planning/PROJECT.md` (updated 2026-01-28)
 
 **Core value:** Externalize the messy recipe in your head into a format you can actually follow
 
-**Current focus:** Phase 1 complete - Ready for Phase 2 (Web Interface)
+**Current focus:** Phase 2 in progress - Building Next.js UI
 
 **Timeline:** Tonight + tomorrow (hackathon)
 
@@ -22,23 +22,23 @@ See: `.planning/PROJECT.md` (updated 2026-01-28)
 | Phase | Name | Status | Progress | Next Action |
 |-------|------|--------|----------|-------------|
 | 1 | Foundation | Complete | 100% (1/1) | Done - API ready |
-| 2 | Web Interface | Pending | 0% (0/12) | Build Next.js UI |
+| 2 | Web Interface | In Progress | 8% (1/12) | Build RecipeInput component |
 | 3 | TRMNL Integration | Pending | 0% (0/2) | Add webhook endpoint |
 | 4 | iOS Shortcut | Pending | 0% (0/5) | Awaiting Phases 1 & 3 completion |
 
-**Overall Progress:** 1/4 plans complete (25%)
+**Overall Progress:** 2/20 plans complete (10%)
 
 ```
-[█████░░░░░░░░░░░░░░░] 25%
+[██░░░░░░░░░░░░░░░░░░] 10%
 ```
 
 ## Performance Metrics
 
 **Started:** 2026-01-28
-**Days active:** 1
-**Plans completed:** 1/4
+**Days active:** 2
+**Plans completed:** 2/20
 **Phases completed:** 1/4
-**Velocity:** 1 plan in 3 min
+**Velocity:** ~5 min per plan
 
 ## Accumulated Context
 
@@ -52,6 +52,9 @@ See: `.planning/PROJECT.md` (updated 2026-01-28)
 | 2026-01-28 | Recipe sections (Prep/Cook/Assemble) | Natural phases help with progress tracking and ADHD focus |
 | 2026-01-28 | tool_choice over beta structured-outputs | SDK v0.39.0 doesn't have beta helpers, tool_choice achieves same result |
 | 2026-01-28 | zod-to-json-schema for schema conversion | Clean way to convert Zod schemas to JSON Schema for Claude tools |
+| 2026-01-29 | Dark theme hardcoded (#1a1a1a) | Simpler than system preference detection for hackathon |
+| 2026-01-29 | Manual type mirroring | Faster than shared package for 2-day timeline |
+| 2026-01-29 | SSR-safe localStorage hook | typeof window check prevents hydration mismatch |
 
 ### Open Questions
 
@@ -66,31 +69,31 @@ None.
 ### TODOs (Cross-Phase)
 
 - [x] Set up Cloudflare Worker project
-- [ ] Set up Next.js project on Vercel
+- [x] Set up Next.js project
+- [ ] Deploy Next.js to Vercel
 - [ ] Get Claude API key (user setup)
 - [x] Define recipe JSON schema
 - [ ] Test with real voice transcript (chicken wraps example)
 
 ## Session Continuity
 
-**Last session:** 2026-01-28 - Completed Phase 1 Plan 01
+**Last session:** 2026-01-29 - Completed Phase 2 Plan 01
 
 **What just happened:**
-- Initialized Cloudflare Worker project with all dependencies
-- Created Zod schemas for Recipe, Section, Step, Ingredient
-- Integrated Claude API with tool_choice for structured outputs
-- Built POST /api/recipe/parse endpoint with validation and CORS
+- Created Next.js 16 project with TypeScript, Tailwind, App Router
+- Applied dark theme (#1a1a1a) globally
+- Created types mirroring Cloudflare Worker schema
+- Built parseRecipe API client with error handling
+- Created SSR-safe useLocalStorage hook
 
 **Commits:**
-- `0b2b673` - Initialize Cloudflare Worker project
-- `5bf0d91` - Create Zod schema and types
-- `203cc2f` - Create Claude API client with structured outputs
-- `6f671a7` - Create Worker fetch handler
+- `6814a29` - Create Next.js project with TypeScript and Tailwind
+- `944b1e4` - Add shared types and API client
 
 **Next session should:**
-- Execute Phase 2: Build Next.js web interface
-- Or test API with real transcript data first
-- User needs to configure ANTHROPIC_API_KEY in .dev.vars
+- Execute Phase 2 Plan 02: RecipeInput component
+- Continue through remaining Phase 2 plans (components, pages)
+- User needs to configure ANTHROPIC_API_KEY in .dev.vars for API testing
 
 **Context to preserve:**
 - This is a hackathon entry for TRMNL (e-ink display)
@@ -102,4 +105,4 @@ None.
 ---
 
 *State initialized: 2026-01-28*
-*Last updated: 2026-01-28*
+*Last updated: 2026-01-29*
