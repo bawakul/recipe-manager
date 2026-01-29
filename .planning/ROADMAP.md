@@ -83,6 +83,8 @@ Plans:
 
 **Requirements:** API-04, API-05
 
+**Plans:** 1 plan
+
 **Dependencies:** Phase 1 (needs recipe JSON structure)
 
 **Success Criteria:**
@@ -96,6 +98,9 @@ Plans:
 - Liquid template variables for e-ink rendering
 - Compression/simplification logic to stay under 2kb
 - Building blind (no device yet) - may need adjustment after hackathon if device received
+
+Plans:
+- [ ] 03-01-PLAN.md — Add TRMNL webhook endpoint with payload formatting and auto-push
 
 ---
 
@@ -147,4 +152,4 @@ Plans:
 ---
 
 *Roadmap created: 2026-01-28*
-*Last updated: 2026-01-29 (Phase 2 complete)*
+*Last updated: 2026-01-29 (Phase 3 planned)*
