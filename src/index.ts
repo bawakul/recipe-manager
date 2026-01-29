@@ -1,5 +1,6 @@
 import { parseTranscript } from './claude';
-import { Env } from './types';
+import { pushToTrmnl } from './trmnl';
+import { Env, Recipe } from './types';
 
 // CORS headers for web app integration
 const corsHeaders = {
@@ -20,6 +21,11 @@ export default {
     // Route: POST /api/recipe/parse
     if (url.pathname === '/api/recipe/parse' && request.method === 'POST') {
       return handleParse(request, env);
+    }
+
+    // Route: POST /api/trmnl/push
+    if (url.pathname === '/api/trmnl/push' && request.method === 'POST') {
+      return handleTrmnlPush(request, env);
     }
 
     // 404 for unknown routes
@@ -52,7 +58,23 @@ async function handleParse(request: Request, env: Env): Promise<Response> {
     // Parse transcript with Claude
     const recipe = await parseTranscript(body.transcript, env);
 
-    return new Response(JSON.stringify(recipe), {
+    // Auto-push to TRMNL after successful parse
+    const trmnlResult = await pushToTrmnl(recipe, env);
+
+    // Merge TRMNL result into response
+    const response: Record<string, unknown> = {
+      ...recipe
+    };
+
+    if (trmnlResult.trmnl_pushed) {
+      response.trmnl_pushed = true;
+    }
+
+    if (trmnlResult.warnings) {
+      response.warnings = trmnlResult.warnings;
+    }
+
+    return new Response(JSON.stringify(response), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' }
     });
 
@@ -80,6 +102,44 @@ async function handleParse(request: Request, env: Env): Promise<Response> {
     // Return actual error for debugging (remove in production)
     return new Response(
       JSON.stringify({ error: 'Failed to parse recipe', debug: errorMessage }),
+      { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+    );
+  }
+}
+
+async function handleTrmnlPush(request: Request, env: Env): Promise<Response> {
+  try {
+    // Parse request body
+    const body = await request.json() as { recipe?: Recipe };
+
+    if (!body.recipe || typeof body.recipe !== 'object') {
+      return new Response(
+        JSON.stringify({ error: 'Invalid request: recipe object required' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    // Validate recipe has required fields
+    if (!body.recipe.title || !body.recipe.sections) {
+      return new Response(
+        JSON.stringify({ error: 'Invalid recipe: title and sections required' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    // Push to TRMNL
+    const result = await pushToTrmnl(body.recipe, env);
+
+    return new Response(JSON.stringify(result), {
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+    });
+
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    console.error('Error pushing to TRMNL:', errorMessage);
+
+    return new Response(
+      JSON.stringify({ error: 'Failed to push to TRMNL', debug: errorMessage }),
       { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     );
   }
