@@ -100,7 +100,7 @@ Plans:
 - Building blind (no device yet) - may need adjustment after hackathon if device received
 
 Plans:
-- [ ] 03-01-PLAN.md — Add TRMNL webhook endpoint with payload formatting and auto-push
+- [x] 03-01-PLAN.md — Add TRMNL webhook endpoint with payload formatting and auto-push
 
 ---
 
@@ -133,8 +133,8 @@ Plans:
 |-------|--------|----------|-----------------|
 | 1 - Foundation | Complete | 3/3 requirements | — |
 | 2 - Web Interface | Complete | 12/12 requirements | — |
-| 3 - TRMNL Integration | Ready | 0/2 requirements | — |
-| 4 - iOS Shortcut | Pending | 0/5 requirements | Blocked by Phase 3 |
+| 3 - TRMNL Integration | Complete | 2/2 requirements | — |
+| 4 - iOS Shortcut | Ready | 0/5 requirements | — |
 
 ## Hackathon Sequencing
 
@@ -152,4 +152,4 @@ Plans:
 ---
 
 *Roadmap created: 2026-01-28*
-*Last updated: 2026-01-29 (Phase 3 planned)*
+*Last updated: 2026-01-29 (Phase 3 complete)*

@@ -2,8 +2,8 @@
 
 ## Current Status
 
-**Phase:** 3 of 4 (TRMNL Integration) - IN PROGRESS
-**Plan:** 1 of 2 complete in Phase 3
+**Phase:** 3 of 4 (TRMNL Integration) - COMPLETE
+**Plan:** 1 of 1 complete in Phase 3
 **Last Updated:** 2026-01-29
 **Mode:** YOLO (hackathon sprint)
 
@@ -13,7 +13,7 @@ See: `.planning/PROJECT.md` (updated 2026-01-28)
 
 **Core value:** Externalize the messy recipe in your head into a format you can actually follow
 
-**Current focus:** Phase 3 in progress - TRMNL webhook integration complete, Liquid template next
+**Current focus:** Phase 3 complete - Ready for Phase 4 iOS Shortcut
 
 **Timeline:** Tonight + tomorrow (hackathon)
 
@@ -23,21 +23,21 @@ See: `.planning/PROJECT.md` (updated 2026-01-28)
 |-------|------|--------|----------|-------------|
 | 1 | Foundation | Complete | 100% (1/1) | Done - API ready |
 | 2 | Web Interface | Complete | 100% (4/4) | Done - Full UI ready |
-| 3 | TRMNL Integration | In Progress | 50% (1/2) | Create Liquid template |
-| 4 | iOS Shortcut | Pending | 0% (0/5) | Awaiting Phases 1 & 3 completion |
+| 3 | TRMNL Integration | Complete | 100% (1/1) | Done - Webhook ready |
+| 4 | iOS Shortcut | Pending | 0% (0/5) | Plan + execute iOS shortcut |
 
-**Overall Progress:** 6/12 plans complete (50%)
+**Overall Progress:** 6/7 plans complete (86%)
 
 ```
-[██████████░░░░░░░░░░] 50%
+[█████████████████░░░] 86%
 ```
 
 ## Performance Metrics
 
 **Started:** 2026-01-28
 **Days active:** 2
-**Plans completed:** 6/12
-**Phases completed:** 2/4
+**Plans completed:** 6/7
+**Phases completed:** 3/4
 **Velocity:** ~2 min per plan
 
 ## Accumulated Context
@@ -90,20 +90,22 @@ None.
 
 ## Session Continuity
 
-**Last session:** 2026-01-29 - Completed Phase 3 Plan 01 (TRMNL webhook integration)
+**Last session:** 2026-01-29 - Completed Phase 3 (TRMNL Integration)
 
 **What just happened:**
 - Created TRMNL module with payload formatting and compression
 - Auto-push to TRMNL after successful recipe parse
 - Manual push endpoint (/api/trmnl/push) for on-demand triggers
 - Graceful error handling (rate limits, network failures, missing webhook URL)
+- Phase 3 complete with 1 plan
 
 **Commits:**
 - `c764c3f` - Create TRMNL module with payload formatting
 - `3ca84f8` - Integrate TRMNL into Worker endpoints
+- `d02f525` - Complete TRMNL webhook integration plan
 
 **Next session should:**
-- Execute Phase 3 Plan 02: Create TRMNL Liquid template
+- Plan and execute Phase 4: iOS Shortcut
 - User needs to configure TRMNL_WEBHOOK_URL in .dev.vars for testing
 - User needs to create TRMNL private plugin in dashboard
 
@@ -113,7 +115,7 @@ None.
 - Core validation already done (tested concept with Claude phone app)
 - Building TRMNL integration blind (don't have device yet)
 - Sample input: Real messy voice transcript from cooking chicken wraps
-- Phase 2 UI is fully functional, ready for e2e testing
+- Phases 1-3 complete, iOS Shortcut is final phase
 
 ---
 
