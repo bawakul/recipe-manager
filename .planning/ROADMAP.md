@@ -70,10 +70,10 @@ Plans:
 - Adjust panel for recipe refinement
 
 Plans:
-- [ ] 02-01-PLAN.md — Project setup with Next.js, Tailwind, types, and API client
-- [ ] 02-02-PLAN.md — Input page with auto-grow textarea and loading state
-- [ ] 02-03-PLAN.md — Recipe checklist with progress tracking and localStorage
-- [ ] 02-04-PLAN.md — Complete flow integration with adjust panel
+- [x] 02-01-PLAN.md — Project setup with Next.js, Tailwind, types, and API client
+- [x] 02-02-PLAN.md — Input page with auto-grow textarea and loading state
+- [x] 02-03-PLAN.md — Recipe checklist with progress tracking and localStorage
+- [x] 02-04-PLAN.md — Complete flow integration with adjust panel
 
 ---
 
@@ -127,7 +127,7 @@ Plans:
 | Phase | Status | Progress | Blocking Issues |
 |-------|--------|----------|-----------------|
 | 1 - Foundation | Complete | 3/3 requirements | — |
-| 2 - Web Interface | Ready | 0/12 requirements | — |
+| 2 - Web Interface | Complete | 12/12 requirements | — |
 | 3 - TRMNL Integration | Ready | 0/2 requirements | — |
 | 4 - iOS Shortcut | Pending | 0/5 requirements | Blocked by Phase 3 |
 
@@ -147,4 +147,4 @@ Plans:
 ---
 
 *Roadmap created: 2026-01-28*
-*Last updated: 2026-01-29 (Phase 2 planned)*
+*Last updated: 2026-01-29 (Phase 2 complete)*

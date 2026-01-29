@@ -17,21 +17,21 @@ Requirements for hackathon demo. Each maps to roadmap phases.
 
 ### Web UI
 
-- [ ] **WEB-01**: Home page with text input for pasting transcript
-- [ ] **WEB-02**: Submit button triggers parse API and displays result
-- [ ] **WEB-03**: Recipe renders as interactive checklist with checkable steps
-- [ ] **WEB-04**: Progress bar shows completion (X of Y steps)
-- [ ] **WEB-05**: Sections are collapsible to reduce visual overwhelm
-- [ ] **WEB-06**: Checkbox state persists in localStorage across page reloads
-- [ ] **WEB-07**: Loading state while API processes
+- [x] **WEB-01**: Home page with text input for pasting transcript
+- [x] **WEB-02**: Submit button triggers parse API and displays result
+- [x] **WEB-03**: Recipe renders as interactive checklist with checkable steps
+- [x] **WEB-04**: Progress bar shows completion (X of Y steps)
+- [x] **WEB-05**: Sections are collapsible to reduce visual overwhelm (SKIPPED per CONTEXT.md - all expanded)
+- [x] **WEB-06**: Checkbox state persists in localStorage across page reloads
+- [x] **WEB-07**: Loading state while API processes
 
 ### Design
 
-- [ ] **DES-01**: Mobile-first layout (works on phone in kitchen)
-- [ ] **DES-02**: Large tap targets for messy/wet hands
-- [ ] **DES-03**: High contrast text (readable at arm's length)
-- [ ] **DES-04**: Dark theme with dark grays (#1a1a1a, #2d2d2d) and amber accents (#f59e0b)
-- [ ] **DES-05**: Minimal chrome, focus on content
+- [x] **DES-01**: Mobile-first layout (works on phone in kitchen)
+- [x] **DES-02**: Large tap targets for messy/wet hands
+- [x] **DES-03**: High contrast text (readable at arm's length)
+- [x] **DES-04**: Dark theme with dark grays (#1a1a1a, #2d2d2d) and neon green accents (#39FF6D)
+- [x] **DES-05**: Minimal chrome, focus on content
 
 ### iOS Shortcut
 
@@ -87,18 +87,18 @@ Which phases cover which requirements. Updated during roadmap creation.
 | API-03 | Phase 1 | Complete |
 | API-04 | Phase 3 | Pending |
 | API-05 | Phase 3 | Pending |
-| WEB-01 | Phase 2 | Pending |
-| WEB-02 | Phase 2 | Pending |
-| WEB-03 | Phase 2 | Pending |
-| WEB-04 | Phase 2 | Pending |
-| WEB-05 | Phase 2 | Pending |
-| WEB-06 | Phase 2 | Pending |
-| WEB-07 | Phase 2 | Pending |
-| DES-01 | Phase 2 | Pending |
-| DES-02 | Phase 2 | Pending |
-| DES-03 | Phase 2 | Pending |
-| DES-04 | Phase 2 | Pending |
-| DES-05 | Phase 2 | Pending |
+| WEB-01 | Phase 2 | Complete |
+| WEB-02 | Phase 2 | Complete |
+| WEB-03 | Phase 2 | Complete |
+| WEB-04 | Phase 2 | Complete |
+| WEB-05 | Phase 2 | Complete |
+| WEB-06 | Phase 2 | Complete |
+| WEB-07 | Phase 2 | Complete |
+| DES-01 | Phase 2 | Complete |
+| DES-02 | Phase 2 | Complete |
+| DES-03 | Phase 2 | Complete |
+| DES-04 | Phase 2 | Complete |
+| DES-05 | Phase 2 | Complete |
 | IOS-01 | Phase 4 | Pending |
 | IOS-02 | Phase 4 | Pending |
 | IOS-03 | Phase 4 | Pending |
@@ -115,4 +115,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-01-28*
-*Last updated: 2026-01-28 (Phase 1 complete)*
+*Last updated: 2026-01-29 (Phase 2 complete)*
