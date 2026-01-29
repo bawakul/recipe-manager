@@ -3,7 +3,7 @@
 ## Current Status
 
 **Phase:** 2 of 4 (Web Interface)
-**Plan:** 1 of 12 complete in Phase 2
+**Plan:** 2 of 4 complete in Phase 2
 **Last Updated:** 2026-01-29
 **Mode:** YOLO (hackathon sprint)
 
@@ -22,23 +22,23 @@ See: `.planning/PROJECT.md` (updated 2026-01-28)
 | Phase | Name | Status | Progress | Next Action |
 |-------|------|--------|----------|-------------|
 | 1 | Foundation | Complete | 100% (1/1) | Done - API ready |
-| 2 | Web Interface | In Progress | 8% (1/12) | Build RecipeInput component |
+| 2 | Web Interface | In Progress | 50% (2/4) | Build RecipeInput component (Plan 02) |
 | 3 | TRMNL Integration | Pending | 0% (0/2) | Add webhook endpoint |
 | 4 | iOS Shortcut | Pending | 0% (0/5) | Awaiting Phases 1 & 3 completion |
 
-**Overall Progress:** 2/20 plans complete (10%)
+**Overall Progress:** 3/12 plans complete (25%)
 
 ```
-[██░░░░░░░░░░░░░░░░░░] 10%
+[█████░░░░░░░░░░░░░░░] 25%
 ```
 
 ## Performance Metrics
 
 **Started:** 2026-01-28
 **Days active:** 2
-**Plans completed:** 2/20
+**Plans completed:** 3/12
 **Phases completed:** 1/4
-**Velocity:** ~5 min per plan
+**Velocity:** ~4 min per plan
 
 ## Accumulated Context
 
@@ -55,6 +55,8 @@ See: `.planning/PROJECT.md` (updated 2026-01-28)
 | 2026-01-29 | Dark theme hardcoded (#1a1a1a) | Simpler than system preference detection for hackathon |
 | 2026-01-29 | Manual type mirroring | Faster than shared package for 2-day timeline |
 | 2026-01-29 | SSR-safe localStorage hook | typeof window check prevents hydration mismatch |
+| 2026-01-29 | Large 7x7 checkboxes | Kitchen use requires easy touch targets with messy hands |
+| 2026-01-29 | Recipe-based localStorage key | `recipe-${title}` ensures separate progress per recipe |
 
 ### Open Questions
 
@@ -77,22 +79,21 @@ None.
 
 ## Session Continuity
 
-**Last session:** 2026-01-29 - Completed Phase 2 Plan 01
+**Last session:** 2026-01-29 - Completed Phase 2 Plan 03
 
 **What just happened:**
-- Created Next.js 16 project with TypeScript, Tailwind, App Router
-- Applied dark theme (#1a1a1a) globally
-- Created types mirroring Cloudflare Worker schema
-- Built parseRecipe API client with error handling
-- Created SSR-safe useLocalStorage hook
+- Created ProgressBar component with percentage calculation and smooth transitions
+- Created RecipeChecklist component with full recipe display
+- Implemented checkbox state persistence via useLocalStorage
+- Kitchen-optimized UI: large tap targets, arm's-length readable text
 
 **Commits:**
-- `6814a29` - Create Next.js project with TypeScript and Tailwind
-- `944b1e4` - Add shared types and API client
+- `e04eddf` - Create ProgressBar component
+- `0edc08d` - Create RecipeChecklist component
 
 **Next session should:**
-- Execute Phase 2 Plan 02: RecipeInput component
-- Continue through remaining Phase 2 plans (components, pages)
+- Execute Phase 2 Plan 02: RecipeInput component (textarea + submit)
+- Then Phase 2 Plan 04: Wire components into page.tsx
 - User needs to configure ANTHROPIC_API_KEY in .dev.vars for API testing
 
 **Context to preserve:**
