@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, Suspense } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { RecipeInput } from '@/components/RecipeInput';
 import { LoadingState } from '@/components/LoadingState';
 import { RecipeChecklist } from '@/components/RecipeChecklist';
@@ -9,12 +10,36 @@ import { parseRecipe } from '@/lib/api';
 import { useLocalStorage } from '@/lib/storage';
 import type { Recipe } from '@/lib/types';
 
-export default function Home() {
+function HomeContent() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
   const [transcript, setTranscript] = useLocalStorage<string>('recipe-transcript', '');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [recipe, setRecipe] = useLocalStorage<Recipe | null>('recipe-current', null);
   const [isAdjustPanelOpen, setIsAdjustPanelOpen] = useState(false);
+
+  // Check for recipe in URL query params on mount
+  useEffect(() => {
+    const recipeParam = searchParams.get('recipe');
+    if (recipeParam) {
+      try {
+        const decoded = atob(recipeParam);
+        const parsed = JSON.parse(decoded) as Recipe;
+
+        // Validate required fields
+        if (parsed.title && parsed.sections && parsed.ingredients) {
+          setRecipe(parsed);
+          // Clear URL param to prevent stale state on refresh
+          router.replace('/');
+        } else {
+          setError('Invalid recipe data');
+        }
+      } catch {
+        setError('Invalid recipe link');
+      }
+    }
+  }, [searchParams, router, setRecipe, setError]);
 
   const handleSubmit = async (text: string) => {
     setTranscript(text);
@@ -105,5 +130,13 @@ export default function Home() {
         </div>
       </div>
     </main>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={<LoadingState message="Loading..." />}>
+      <HomeContent />
+    </Suspense>
   );
 }
