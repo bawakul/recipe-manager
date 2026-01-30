@@ -1,6 +1,6 @@
 # Recipe Checklist
 
-Ramble about what you're cooking, get a checklist.
+I (sometimes) get ADHD when I cook. Yesterday, I got a TRMNL (https://trmnl.com/). So here's what I do now: I look around at what's in the kitchen, dictate my rough plan into the parser on vercel, and refresh the TRMNL display.
 
 ## Try it
 
