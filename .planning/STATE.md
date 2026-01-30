@@ -2,10 +2,17 @@
 
 ## Current Status
 
-**Phase:** 4 of 4 (iOS Shortcut) - IN PROGRESS
-**Plan:** 1 of 5 complete in Phase 4
-**Last Updated:** 2026-01-29
-**Mode:** YOLO (hackathon sprint)
+**Status:** SHIPPED
+**Last Updated:** 2026-01-30
+**Mode:** Complete
+
+## Deployment
+
+| Component | URL |
+|-----------|-----|
+| **Web App** | https://recipe-displayer.vercel.app |
+| **API** | https://recipe-parser.bawas-lab.workers.dev |
+| **TRMNL Plugin** | Configured in TRMNL dashboard |
 
 ## Project Reference
 
@@ -13,36 +20,35 @@ See: `.planning/PROJECT.md` (updated 2026-01-28)
 
 **Core value:** Externalize the messy recipe in your head into a format you can actually follow
 
-**Current focus:** Phase 4 in progress - URL param support complete, iOS Shortcut next
+## What Shipped
 
-**Timeline:** Tonight + tomorrow (hackathon)
+- Voice transcript → structured recipe parsing (Claude API)
+- Interactive web checklist with progress tracking
+- TRMNL e-ink display integration (webhook + Liquid template)
+- URL query param support for stateless recipe sharing
+- LocalStorage persistence for checkbox state
+- Mobile-first, kitchen-friendly dark UI
 
 ## Phase Progress
 
-| Phase | Name | Status | Progress | Next Action |
-|-------|------|--------|----------|-------------|
-| 1 | Foundation | Complete | 100% (1/1) | Done - API ready |
-| 2 | Web Interface | Complete | 100% (4/4) | Done - Full UI ready |
-| 3 | TRMNL Integration | Complete | 100% (1/1) | Done - Webhook ready |
-| 4 | iOS Shortcut | In Progress | 20% (1/5) | Execute remaining 4 plans |
+| Phase | Name | Status | Progress |
+|-------|------|--------|----------|
+| 1 | Foundation | Complete | 100% (1/1) |
+| 2 | Web Interface | Complete | 100% (4/4) |
+| 3 | TRMNL Integration | Complete | 100% (1/1) |
+| 4 | iOS Shortcut | Partial | Skipped formal plans, deployed directly |
 
-**Overall Progress:** 7/11 plans complete (64%)
-
-```
-[█████████████░░░░░░░] 64%
-```
+**Outcome:** Core product shipped and working. iOS Shortcut guide exists but wasn't formally tested (hackathon pivoted to different project).
 
 ## Performance Metrics
 
 **Started:** 2026-01-28
-**Days active:** 2
-**Plans completed:** 7/11
-**Phases completed:** 3/4
-**Velocity:** ~1.5 min per plan
+**Shipped:** 2026-01-30
+**Days active:** 3
+**Plans completed:** 7/11 (64% of formal plans)
+**Actual completion:** ~95% (deployed and usable)
 
-## Accumulated Context
-
-### Key Decisions
+## Key Decisions
 
 | Date | Decision | Rationale |
 |------|----------|-----------|
@@ -68,61 +74,35 @@ See: `.planning/PROJECT.md` (updated 2026-01-28)
 | 2026-01-29 | Base64 encoding for URL params | Standard encoding for binary-safe URL transmission, browser-native support |
 | 2026-01-29 | Clear URL param after load | Prevents confusion/staleness on refresh, recipe lives in localStorage |
 | 2026-01-29 | Suspense boundary for useSearchParams | Required by Next.js for client-side hooks in SSR context |
+| 2026-01-30 | TRMNL steps as plain strings | Worker flattens step objects to strings (`step.text` → `step`), template uses `{{ step }}` not `{{ step.text }}` |
 
-### Open Questions
-
-- iOS Shortcut: Call parse endpoint (auto-push) or manual push endpoint?
-- TRMNL device: No device yet for visual verification (building blind)
-- Sample data: Use real chicken wraps transcript for testing?
-
-### Blockers
-
-None.
-
-### TODOs (Cross-Phase)
+## Completed TODOs
 
 - [x] Set up Cloudflare Worker project
 - [x] Set up Next.js project
-- [ ] Deploy Next.js to Vercel
-- [ ] Configure ANTHROPIC_API_KEY in .dev.vars
-- [ ] Configure TRMNL_WEBHOOK_URL in .dev.vars
+- [x] Deploy Next.js to Vercel
+- [x] Configure ANTHROPIC_API_KEY (dev + production)
+- [x] Configure TRMNL_WEBHOOK_URL (dev + production)
 - [x] Define recipe JSON schema
 - [x] Add TRMNL webhook integration
 - [x] Add URL query param support for iOS Shortcut
-- [ ] Create TRMNL Liquid template
-- [ ] Test with real voice transcript (chicken wraps example)
-- [ ] Create iOS Shortcut
+- [x] Create TRMNL Liquid template
+- [x] Test with real device (TRMNL received, integration verified)
 
-## Session Continuity
+## Future Improvements (if revisited)
 
-**Last session:** 2026-01-29 - Completed Phase 4 Plan 1 (URL Query Parameter Support)
+- [ ] Polish TRMNL template design (current is functional but basic)
+- [ ] Build and test iOS Shortcut end-to-end
+- [ ] Add recipe adaptation (appliances, dietary needs)
+- [ ] Recipe memory / history
 
-**What just happened:**
-- Added URL query parameter support to frontend page.tsx
-- Implemented base64 decoding and JSON parsing for recipe data
-- Added validation for required fields (title, sections, ingredients)
-- Wrapped component in Suspense boundary for Next.js SSR compatibility
-- URL param cleared after loading to prevent stale state
-- Phase 4 Plan 1 complete (1/5)
+## Session History
 
-**Commits:**
-- `1036b8b` - feat(04-01): add URL query param recipe loading
-
-**Next session should:**
-- Execute Phase 4 Plans 2-5 (iOS Shortcut implementation)
-- User needs to configure TRMNL_WEBHOOK_URL in .dev.vars for testing
-- User needs to create TRMNL private plugin in dashboard
-- Test URL param loading with real base64-encoded recipe data
-
-**Context to preserve:**
-- This is a hackathon entry for TRMNL (e-ink display)
-- Timeline is TIGHT: tonight + tomorrow
-- Core validation already done (tested concept with Claude phone app)
-- Building TRMNL integration blind (don't have device yet)
-- Sample input: Real messy voice transcript from cooking chicken wraps
-- Phases 1-3 complete, iOS Shortcut is final phase
+- **2026-01-28:** Project init, Phase 1 complete, Phase 2 started
+- **2026-01-29:** Phase 2-3 complete, Phase 4 Plan 1 complete
+- **2026-01-30:** TRMNL device received, debugged integration, deployed to production
 
 ---
 
 *State initialized: 2026-01-28*
-*Last updated: 2026-01-29 15:29 UTC*
+*Shipped: 2026-01-30*
